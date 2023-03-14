@@ -1,5 +1,4 @@
 package com.batch.config;
-import org.apache.catalina.User;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;

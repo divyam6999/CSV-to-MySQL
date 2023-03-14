@@ -1,5 +1,4 @@
 package com.batch.config;
-import org.apache.tomcat.jni.User;
 import org.springframework.batch.item.ItemProcessor;
 
 import com.batch.entities.Data;
@@ -8,7 +7,9 @@ import com.batch.entities.Data;
 public class Data_Processor implements ItemProcessor<Data, Data>{
     @Override
     public Data process(Data data) throws Exception {
-        return new Data(
+
+    	 if(data.getCountry().equals("France")) {
+             return new Data(
         		data.getDate_reported(),
         		data.getCountry_code().toLowerCase(),
         		data.getCountry().toUpperCase(),
@@ -19,5 +20,8 @@ public class Data_Processor implements ItemProcessor<Data, Data>{
         		data.getCumulative_deaths()
         		
         		);
-    }
+         }else{
+             return null;
+         }
+     }
 }
